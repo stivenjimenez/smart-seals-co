@@ -4,7 +4,7 @@ import Notifications from "./Notifications";
 import Avatar from "./Avatar";
 
 import "./styles.css";
-const Header = () => {
+const Header = (props) => {
   return (
     <header className="header">
       <div className="header__left">
@@ -12,7 +12,7 @@ const Header = () => {
           src="https://smartseals.co/img/logo-smart.png"
           alt="logo smart seals co"
           className="header__logo"
-          onClick={() => console.log("jajaj")}
+          onClick={() => props.setSidebar(!props.sidebar)}
         />
         <Search />
       </div>
