@@ -1,10 +1,11 @@
 import React from "react";
+import MapView from "../../components/MapView";
 import "./index.css";
 
 const Monitoring = () => {
   return (
     <div className="container">
-      <h1>Monitoreo</h1>
+      <MapView />
     </div>
   );
 };

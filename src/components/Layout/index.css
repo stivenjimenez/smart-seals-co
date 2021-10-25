@@ -1,0 +1,5 @@
+.hero {
+  display: flex;
+  width: 100vw;
+  overflow: hidden;
+}

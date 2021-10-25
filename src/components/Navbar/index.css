@@ -1,10 +1,15 @@
 .nav__menu {
   background-color: #fff;
   height: calc(100vh - 58px);
-  position: fixed;
+  /* position: fixed; */
+  width: 42px;
   display: flex;
   padding: 0 20px;
   box-shadow: 20px 35px 50px #00000026;
+}
+
+.active {
+  width: 139px;
 }
 
 .nav__menu--items {

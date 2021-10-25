@@ -8,7 +8,7 @@ const Navbar = (props) => {
   let url = window.location.pathname;
   return (
     <>
-      <nav className={"nav__menu"}>
+      <nav className={props.sidebar ? "nav__menu active" : "nav__menu"}>
         <ul className="nav__menu--items">
           {SidebarData.map((item, index) => {
             return (
