@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Marker } from "react-leaflet";
-import { IconTree } from "./IconLocation";
+import { Marker, Popup } from "react-leaflet";
 import axios from "axios";
+import { IconTree } from "./IconLocation";
+import * as AiIcons from "react-icons/ai";
+import * as FaIcons from "react-icons/fa";
+
+import "./index.css";
 
 const Markers = () => {
   const [markers, setMarkers] = useState([]);
@@ -17,6 +21,8 @@ const Markers = () => {
     getMarkets();
   }, [token]);
 
+  console.log(markers);
+
   return (
     <>
       {markers.map((marker, index) => {
@@ -25,7 +31,43 @@ const Markers = () => {
             key={index}
             position={[marker.ubication.longitude, marker.ubication.latitude]}
             icon={IconTree}
-          ></Marker>
+          >
+            <Popup>
+              <div className="map__popup--container">
+                <p className="map__popup--title">Información</p>
+                <span className="map__popup--text">
+                  <strong>Nombre: </strong>
+                  Marlon Segundo
+                </span>
+                <span className="map__popup--text">
+                  <strong>Equipo: </strong>
+                  Redmi Note 9S
+                </span>
+                <span className="map__popup--text">
+                  <strong>Nivel de señal: </strong>
+                  <AiIcons.AiFillSignal className="map__popup--icon" />
+                </span>
+                <span className="map__popup--text">
+                  <strong>Almacenamiento: </strong>
+                  84.88/107.203 GB
+                </span>
+                <span className="map__popup--text-center">
+                  <strong>Nivel de batería: </strong>
+                  <FaIcons.FaBatteryThreeQuarters className="map__popup--icon" />
+                </span>
+                <span className="map__popup--text">
+                  <strong>Memoria RAM: </strong>
+                  5,45 GB
+                </span>
+                <button
+                  className="map__popup--button"
+                  onClick={() => console.log(marker.formId)}
+                >
+                  Ver detalles
+                </button>
+              </div>
+            </Popup>
+          </Marker>
         );
       })}
     </>
