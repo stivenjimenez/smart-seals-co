@@ -7,7 +7,7 @@ import * as FaIcons from "react-icons/fa";
 
 import "./index.css";
 
-const Markers = () => {
+const Markers = ({ setModal, setFormId }) => {
   const [markers, setMarkers] = useState([]);
   const BASE_URL = "https://prueba.smartseals.co/prueba-frontend";
   const token = localStorage.getItem("token");
@@ -20,8 +20,6 @@ const Markers = () => {
     };
     getMarkets();
   }, [token]);
-
-  console.log(markers);
 
   return (
     <>
@@ -61,7 +59,10 @@ const Markers = () => {
                 </span>
                 <button
                   className="map__popup--button"
-                  onClick={() => console.log(marker.formId)}
+                  onClick={() => {
+                    setModal(true);
+                    setFormId(marker.formId);
+                  }}
                 >
                   Ver detalles
                 </button>
